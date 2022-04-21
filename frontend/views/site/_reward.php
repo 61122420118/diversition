@@ -3,8 +3,12 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
+$this->title = 'ระบบสุ่มรางวัล';
 ?>
-<div class="sale-search">
+<h3>ค้นหา</h3>
+<?php  echo $this->render('_search', ['model' => $searchModel]); ?>
+<div style="text-align:center;font-size:18px;">
+<div class="reward-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -48,11 +52,11 @@ echo $result;
 <table class="table_bordered" width="100%" border="3" cellspacing="0">
             <thead>
                    <tr>
-                    <td><b>รางวัลที่ 1 </b></td>
-                    <td><b>รางวัลที่ 2 </b></td>
-                    <td><b>รางวัลที่ 3 </b></td>
-                    <td><b> 2 ตัวท้าย</b></td>
-                    <td><b> 2 ตัวหน้า</b></td>
+                    <td class="text-center"><b>รางวัลที่ 1 </b></td>
+                    <td class="text-center"><b>รางวัลที่ 2 </b></td>
+                    <td class="text-center"><b>รางวัลที่ 3 </b></td>
+                    <td class="text-center"><b> 2 ตัวท้าย</b></td>
+                    <td class="text-center"><b> 2 ตัวหน้า</b></td>
 
                 </tr>
             </thead>
@@ -80,4 +84,3 @@ echo $result;
 
 
     </table>  
-    

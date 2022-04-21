@@ -39,7 +39,7 @@ class Reward extends \yii\db\ActiveRecord
     {
         return [
             'reward_id' => 'Reward ID',
-            'reward_num' => 'Reward Num',
+            'reward_num' => 'กรุณากรอกหมายเลขของท่าน',
         ];
     }
 }

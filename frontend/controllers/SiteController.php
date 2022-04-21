@@ -14,8 +14,10 @@ use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\RewardSearch;
+use frontend\models\Reward;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+
 
 /**
  * Site controller
@@ -81,10 +83,12 @@ class SiteController extends Controller
         shuffle($unit);
         $result = implode(array_slice($unit, 0,$roll));
         $searchModel = new RewardSearch();
+        $modelreward = new Reward();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         return $this->render('index',[
         'searchModel' => $searchModel,
         'dataProvider' => $dataProvider,
+        'modelreward' => $modelreward,
         'result' => $result
         ,
         ]);
@@ -288,4 +292,23 @@ public function actionDelete()
             'model' => $model
         ]);
     }
+    
+    public function actionRoll()
+    {
+        $searchModel = new RewardSearch();
+        $modelreward = new Reward();
+        $roll = rand(1,3);
+        $unit = array_merge(range(0,9));
+        shuffle($unit);
+        $result = implode(array_slice($unit, 0,$roll));
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        return $this->render('_reward',[
+        'searchModel' => $searchModel,
+        'dataProvider' => $dataProvider,
+        'modelreward' => $modelreward,
+        'result' => $result
+        ,
+        ]);
+    }
+
 }
